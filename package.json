@@ -1,0 +1,16 @@
+{
+  "name": "frameworkbdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx codeceptjs run --features"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "codeceptjs": "^3.5.14",
+    "puppeteer": "^22.3.0"
+  }
+}
