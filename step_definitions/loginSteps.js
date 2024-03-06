@@ -5,11 +5,14 @@ Given('Im on the right page', () => {
     loginPage.visit()
 });
 
-When('I fill the form with my user and my password',()=>{
-    loginPage.visit('ygalvan','Qwerty123')
+When(/^I fill the form with my user: "([^"]*)" and my password: "([^"]*)"$/, (user, password) => {
+    loginPage.login(user, password);
+});
+
+Then('I should see the dashboard page',()=>{
+    loginPage.validateLogin()
 })
 
-Then('I fill the form with my email and my password',()=>{
-    console.log("llegamos")
-    loginPage.login('ygalvan','qwerty123')
-})
+When(/^I fill the form with my (.*) and my (.*)$/, (user, password) => {
+    loginPage.login(user, password);
+});

@@ -14,26 +14,26 @@ class LoginPage {
     visit() {
         I.amOnPage("index.php");
         I.waitForElement(this.titleLoginPage);
-        I.seeInCurrentUrl('login')
+        I.seeInCurrentUrl('index')
     }
 
-    login(usuario,password){
-        console.log("llegamos")
-        //await page.waitForSelector(this.inputUser)
+    login(usuario, password) {
+        console.log("usuario:", usuario)
+        console.log("password:", password)
         try {
             I.waitForElement(this.inputUser);
-            I.fillField(this.inputUser,usuario);
+            I.fillField(this.inputUser, usuario);
             I.waitForElement(this.inputPassword);
-            I.fillField(this.inputPassword,password);
+            I.fillField(this.inputPassword, password);
             I.click(this.submitButton);
-        } catch (e){
-            throw new Error(`En el login `+e.errorMessage)
+        } catch (e) {
+            throw new Error(`En el login ` + e.errorMessage)
         }
 
     }
 
     validateLogin() {
-         I.validateLogin()
+        I.waitForElement(this.titleMainPage)
     }
 }
 
